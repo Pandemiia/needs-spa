@@ -1,7 +1,16 @@
 # needs-spa
 
+
+
 ## Project setup
 ```
+$ aws configure --profile pandemiia
+AWS Access Key ID [None]: 
+AWS Secret Access Key [None]: 
+Default region name [None]: eu-central-1
+Default output format [None]: 
+
+
 npm install
 ```
 

@@ -1,0 +1,40 @@
+// width
+@mixin r($width) {
+  @media only screen and (max-width: $width + 'px') {
+    @content;
+  }
+}
+
+@mixin rmin($width) {
+  @media only screen and (min-width: $width + 'px') {
+    @content;
+  }
+}
+
+// width and height
+@mixin rwh($width, $height) {
+  @media (min-height: $height + 'px') and (min-width: $width + 'px') {
+    @content;
+  }
+}
+
+// height and width
+@mixin rhw($height, $width) {
+  @media (max-height: $height + 'px') and (max-width: $width + 'px') {
+    @content;
+  }
+}
+
+// height
+@mixin h($height) {
+  @media only screen and (max-height: $height + 'px') {
+    @content;
+  }
+}
+
+// height min
+@mixin hmin($height) {
+  @media only screen and (min-height: $height + 'px') {
+    @content;
+  }
+}
