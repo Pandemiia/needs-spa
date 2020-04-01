@@ -4,13 +4,43 @@
  * @version 1.0.0
  */
 
+import * as R from 'ramda';
+
 
 /**
  * Getter: Возвращает массив всех акций
  *
  * @returns {array}
  */
-const points = state => state.points;
+const needs = state => state.needs;
+
+/**
+ * Getter: Возвращает массив всех акций
+ *
+ * @returns {array}
+ */
+const getNeeds = state => point => state.needs.filter(need => need.point === point);
+
+
+/**
+ * Getter: Возвращает массив всех акций
+ *
+ * @returns {array}
+ */
+const needsCategories = state => {
+  return R.pipe(
+    R.map(item => item.category),
+    R.flatten,
+    R.uniq,
+  )(state.needs);
+};
+
+/**
+ * Getter: Возвращает количествоо потребностей
+ *
+ * @returns {array}
+ */
+const number = state => state.needs.length;
 
 
 /**
@@ -18,9 +48,12 @@ const points = state => state.points;
  *
  * @returns {boolean}
  */
-const isPointsLoading = state => state.isPointsLoading;
+const isNeedsLoading = state => state.isNeedsLoading;
 
 export default {
-  isPointsLoading,
-  points,
+  getNeeds,
+  isNeedsLoading,
+  needs,
+  number,
+  needsCategories,
 };

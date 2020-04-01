@@ -1,6 +1,10 @@
 <template>
   <div class="p-points">
-
+    <p-point
+      v-for="id in points"
+      :key="id"
+      :id="id"
+    />
   </div>
 </template>
 

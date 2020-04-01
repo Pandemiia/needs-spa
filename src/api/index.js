@@ -17,7 +17,6 @@ export const apiGetPoints = async () => {
   };
 
   const { data } = await axios.get(`${API_URL}/points/`, config);
-  console.log('points', data);
   return data;
 };
 
@@ -31,6 +30,5 @@ export const apiGetNeeds = async () => {
   };
 
   const { data } = await axios.get(`${API_URL}/needs/`, config);
-  console.log('points', data);
   return data;
 };

@@ -1,0 +1,43 @@
+<template>
+  <div class="p-address">
+    <svg class="p-address__icon" version="1.1" x="0px" y="0px" viewBox="0 0 35.219 35.219" style="enable-background:new 0 0 35.219 35.219;" xml:space="preserve">
+	      <path d="M17.612,0C11.005,0,5.648,5.321,5.648,11.885c0,3.358,3.294,9.374,3.294,9.374l8.229,13.96l8.586-13.797
+		c0,0,3.814-5.74,3.814-9.537C29.572,5.321,24.216,0,17.612,0z M17.556,18.431c-3.784,0-6.849-3.065-6.849-6.853
+		c0-3.783,3.064-6.846,6.849-6.846c3.782,0,6.85,3.063,6.85,6.846C24.406,15.366,21.338,18.431,17.556,18.431z"/>
+  </svg>
+    Адреса: {{address.region}}, {{address.city}}, {{address.line1}}
+  </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex';
+
+import PPoint from '@/components/PPoint';
+
+export default {
+  name: 'p-address',
+
+  props: {
+    address: {
+      type: Object,
+      required: true,
+    },
+  },
+};
+</script>
+
+<style lang="scss">
+.p-address {
+  display: flex;
+  margin-bottom: $vp;
+  font-size: 12px;
+
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    fill: paleturquoise;
+    margin-right: $vp / 2;
+  }
+}
+</style>

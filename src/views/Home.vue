@@ -2,11 +2,12 @@
   <div class="page-home">
     <div class="page-home__section page-home__section_number_1">
       <p-about />
+      <p-stats />
     </div>
 
     <div class="page-home__section page-home__section_number_2">
       <h2>Актуальні потреби</h2>
-
+      <p-points :points="pointsIds" />
     </div>
 
     <div class="page-home__section page-home__section_number_3">
@@ -32,9 +33,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 // Components
 import PAbout from '@/components/PAbout.vue';
 import PFilter from '@/components/PFilter.vue';
+import PPoints from '@/components/PPoints.vue';
+import PStats from '@/components/PStats.vue';
 
 
 export default {
@@ -43,6 +48,8 @@ export default {
   components: {
     PAbout,
     PFilter,
+    PPoints,
+    PStats,
   },
 
   data() {
@@ -60,33 +67,25 @@ export default {
       ],
 
       pointsType: [],
-      pointsTypeOptions: [
-        {
-          value: 'Опорна лікарня',
-          label: 'Опорна лікарня',
-        },
-        {
-          value: 'Госпіталь',
-          label: 'Госпіталь',
-        },
-      ],
 
       needsTypes: [],
-      needsTypesOptions: [
-        {
-          value: 'засоби захисту',
-          label: 'засоби захисту',
-        },
-        {
-          value: 'медикаменти',
-          label: 'медикаменти',
-        },
-        {
-          value: 'харчі',
-          label: 'харчі',
-        },
-      ],
     };
+  },
+
+  computed: {
+    needsTypesOptions() {
+      return this.needsCategories.map(item => ({value: item, label: item}));
+    },
+
+    pointsTypeOptions() {
+      return this.pointsCategories.map(item => ({value: item, label: item}));
+    },
+
+    ...mapGetters({
+      pointsIds: 'points/pointsIds',
+      needsCategories: 'needs/needsCategories',
+      pointsCategories: 'points/pointsCategories',
+    }),
   },
 };
 </script>
@@ -100,6 +99,7 @@ export default {
 
     &_number_1 {
       flex: 1;
+      text-align: left;
     }
 
     &_number_3 {
