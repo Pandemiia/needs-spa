@@ -1,7 +1,7 @@
 <template>
   <div class="p-need">
     <div class="p-need__name">{{need.name}}</div>
-    <div class="p-need__name">{{need.quantity[0].needed}} {{need.units}}</div>
+    <div class="p-need__name">{{need.quantity.needed}} {{need.units}}</div>
   </div>
 </template>
 
